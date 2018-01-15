@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "405435651294",
+    "firebase_url": "https://bdayapp-ee46b.firebaseio.com",
+    "project_id": "bdayapp-ee46b",
+    "storage_bucket": "bdayapp-ee46b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:405435651294:android:27f3ef988c85d784",
+        "android_client_info": {
+          "package_name": "darius.com.bdayapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "405435651294-2s3khjnevpm3h7u4o73e4k14255r715a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "darius.com.bdayapp",
+            "certificate_hash": "525baa1cdda2f12cc174d94db67fb82f38a78c44"
+          }
+        },
+        {
+          "client_id": "405435651294-cfhlho519i55k40q1bp2sg2sdovt77gu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMkwpy9kEa-za7ddag8kopibUgurXRDK4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "405435651294-cfhlho519i55k40q1bp2sg2sdovt77gu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
