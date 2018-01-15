@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.facebook.AccessToken;
@@ -40,6 +41,7 @@ public class PostLoginActivity extends AppCompatActivity {
     private int max;
     private String bestFriendId = "1";
     private TextView resultTextView;
+    private ProgressBar postLoginProgressBar;
 
 
     public int getMax() {
@@ -65,6 +67,7 @@ public class PostLoginActivity extends AppCompatActivity {
         setContentView(R.layout.post_login_activity);
 
         resultTextView = findViewById(R.id.result_text_view);
+        postLoginProgressBar = findViewById(R.id.post_login_progress_bat);
 
         context = getApplicationContext();
         auth = FirebaseAuth.getInstance();
@@ -116,6 +119,8 @@ public class PostLoginActivity extends AppCompatActivity {
                                                                             public void onCompleted(GraphResponse response) {
                                                                                 JSONObject name = response.getJSONObject();
                                                                                 try {
+                                                                                    postLoginProgressBar.setVisibility(View.GONE);
+                                                                                    resultTextView.setVisibility(View.VISIBLE);
                                                                                     resultTextView.setText(name.getString("name"));
                                                                                 } catch (JSONException e) {
                                                                                     Log.d("Developer!!!", "JSONException");

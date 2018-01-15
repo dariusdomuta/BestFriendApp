@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context="darius.com.bdayapp.MainActivity">
 
+
     <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,14 +20,13 @@
         android:id="@+id/logout_button"
         android:text="Log out"
         android:layout_gravity="center"
-        android:visibility="gone"
         />
     <Button
         android:id="@+id/post_login_button"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="See who likes you the most"/>
+        android:text="Find the best facebook friend"/>
 
 </FrameLayout>
