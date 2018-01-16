@@ -1,16 +1,11 @@
 package darius.com.bdayapp;
 
-import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -18,9 +13,6 @@ import com.facebook.AccessToken;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.HttpMethod;
-import com.firebase.ui.auth.AuthUI;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
 import org.json.JSONArray;
@@ -48,12 +40,12 @@ public class PostLoginActivity extends AppCompatActivity {
         return max;
     }
 
-    public String getBestFriendId() {
-        return bestFriendId;
-    }
-
     public void setMax(int max) {
         this.max = max;
+    }
+
+    public String getBestFriendId() {
+        return bestFriendId;
     }
 
     public void setBestFriendId(String bestFriendId) {
@@ -86,7 +78,7 @@ public class PostLoginActivity extends AppCompatActivity {
                         try {
                             final JSONArray jsonArray = jsonObject.getJSONArray("data");
 
-                            for ( int i = 0; i < jsonArray.length(); i++) {
+                            for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject jsonPost = jsonArray.getJSONObject(i);
                                 String id = jsonPost.getString("id");
                                 new GraphRequest(
@@ -102,10 +94,10 @@ public class PostLoginActivity extends AppCompatActivity {
 
                                                     for (int j = 0; j < likes.length(); j++) {
                                                         JSONObject friend = likes.getJSONObject(j);
-                                                        String friendId= friend.getString("id");
+                                                        String friendId = friend.getString("id");
 
                                                         if (friends.containsKey(friendId)) {
-                                                            friends.put(friendId, friends.get(friendId) +1 );
+                                                            friends.put(friendId, friends.get(friendId) + 1);
                                                             if (friends.get(friendId) > getMax()) {
 
                                                                 setMax(friends.get(friendId));
@@ -113,7 +105,7 @@ public class PostLoginActivity extends AppCompatActivity {
 
                                                                 GraphRequest request = GraphRequest.newGraphPathRequest(
                                                                         AccessToken.getCurrentAccessToken(),
-                                                                        "/"+getBestFriendId(),
+                                                                        "/" + getBestFriendId(),
                                                                         new GraphRequest.Callback() {
                                                                             @Override
                                                                             public void onCompleted(GraphResponse response) {
@@ -132,7 +124,7 @@ public class PostLoginActivity extends AppCompatActivity {
                                                                 request.executeAsync();
 
 
-                                                                Log.d ("Developer!!!", "there you go" + getMax() +" " + getBestFriendId() );
+                                                                Log.d("Developer!!!", "there you go" + getMax() + " " + getBestFriendId());
 
 
                                                             }
